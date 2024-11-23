@@ -14,3 +14,14 @@ def pregunta_01():
     214
 
     """
+    suma=0
+    with open(r"C:\Users\DELL\OneDrive\Escritorio\Especialización\Analitica Descriptiva\2024-2-LAB-01-programacion-basica-en-python-carolinacgj\files\input\data.csv", "r") as file:
+        for line in file:
+            columns=line.strip().split("\t")
+            suma+=int(columns[1])
+    return suma
+
+
+print(pregunta_01())
+
+
