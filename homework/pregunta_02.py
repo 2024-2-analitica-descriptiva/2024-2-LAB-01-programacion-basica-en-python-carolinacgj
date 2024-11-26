@@ -17,7 +17,7 @@ def pregunta_02():
     """
     # Generar lista con las lineas de data
     letter_count=[]
-    with open("files\input\data.csv", "r") as file:
+    with open("files7input/data.csv", "r") as file:
         lines=file.readlines()
     
     # Agregamos la primera columna de cada linea a letter_count = mapper (mapreduce)
