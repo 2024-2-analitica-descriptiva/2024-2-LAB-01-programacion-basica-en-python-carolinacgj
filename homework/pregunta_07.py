@@ -9,7 +9,7 @@ utilizar pandas, numpy o scipy.
 def pregunta_07():
     """
     Retorne una lista de tuplas que asocien las columnas 0 y 1. Cada tupla
-    contiene un valor posible de la columna 2 y una lista con todas las letras
+    contiene un valor posible de la columna 1 y una lista con todas las letras
     asociadas (columna 1) a dicho valor de la columna 2.
 
     Rta/
@@ -25,3 +25,23 @@ def pregunta_07():
      (9, ['A', 'B', 'E', 'A', 'A', 'C'])]
 
     """
+    values_by_key={}
+
+    with open("files/input/data.csv", "r") as file:
+        for line in file:
+            columns = line.strip().split("\t")
+            column_0 = columns[0]
+            column_1=int(columns[1])
+
+            if column_1 in values_by_key:
+                    values_by_key[column_1].append(column_0)
+            else:
+                    values_by_key[column_1] = [column_0]
+    result = sorted(values_by_key.items())
+
+    return result
+
+if __name__ == "__main__":
+    print(pregunta_07())
+              
+              

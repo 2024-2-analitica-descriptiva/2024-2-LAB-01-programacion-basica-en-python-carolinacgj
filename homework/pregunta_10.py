@@ -20,3 +20,25 @@ def pregunta_10():
 
 
     """
+    values_by_key = []
+
+    # Leer el archivo línea por línea
+    with open("files/input/data.csv", "r") as file:
+        for line in file:
+            # Dividir la línea en columnas usando tabulador como separador
+            columns = line.strip().split("\t")
+            column_0 = columns[0]  # Obtener la columna 0
+            column_3 = len(columns[3].split(","))  # Obtener la columna 3
+            column_4 = len(columns[4].split(","))  # Obtener la columna 4
+
+            values_by_key.append((column_0,column_3,column_4))
+    
+
+    return values_by_key
+
+# Código de prueba
+if __name__ == "__main__":
+    print(pregunta_10())
+
+
+

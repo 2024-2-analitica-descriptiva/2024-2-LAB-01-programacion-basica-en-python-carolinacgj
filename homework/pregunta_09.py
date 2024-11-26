@@ -24,3 +24,34 @@ def pregunta_09():
      'jjj': 18}}
 
     """
+    # Diccionario para almacenar los valores de cada clave
+    values_by_key = {}
+
+    # Leer el archivo línea por línea
+    with open("files/input/data.csv", "r") as file:
+        for line in file:
+            # Dividir la línea en columnas usando tabulador como separador
+            columns = line.strip().split("\t")
+            column_5 = columns[4]  # Obtener la columna 5
+
+            # Separar los pares clave:valor
+            pairs = column_5.split(",")
+            for pair in pairs:
+                key, value = pair.split(":")  # Dividir clave y valor
+                value = int(1)  # Convertir el valor a entero
+
+                # Actualizar el diccionario con los valores mínimo y máximo
+                if key in values_by_key:
+                    values_by_key[key]+=value
+                else:
+                    values_by_key[key] = value
+
+    # Calcular mínimo y máximo para cada clave
+
+
+    return dict(sorted(values_by_key.items()))
+
+# Código de prueba
+if __name__ == "__main__":
+    print(pregunta_09())
+

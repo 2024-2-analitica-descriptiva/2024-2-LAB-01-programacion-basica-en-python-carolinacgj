@@ -26,3 +26,29 @@ def pregunta_04():
      ('12', 3)]
 
     """
+    sums_by_month = {}
+
+    # Leer el archivo línea por línea
+    with open("files/input/data.csv", "r") as file:
+        for line in file:
+            # Dividir la línea en columnas usando tabulador como separador
+            columns = line.split("\t")
+            date = columns[2]  # toma la columna fecha
+            month=date.split("-")[1] #divide la fecha por - y toma el dato mes
+            
+
+            # Sumar el valor al acumulador correspondiente en el diccionario
+            if month in sums_by_month:
+                sums_by_month[month] += 1
+            else:
+                sums_by_month[month] = 1
+
+    # Ordenar el resultado alfabéticamente por letra y convertirlo en una lista de tuplas
+    result = sorted(sums_by_month.items())
+
+    return result
+
+
+# Código de prueba
+if __name__ == "__main__":
+    print(pregunta_04())
